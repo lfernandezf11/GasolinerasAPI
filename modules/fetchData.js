@@ -1,16 +1,5 @@
 import { API, QUERYPARAMS} from '/utils/constants.js';
-
-export async function fetchAPI(url) {
-    try {
-        let response = await fetch(url);
-        if (!response.ok) { throw new Error(`Error de red: ${response.statusText}`); }
-
-        let data = await response.json();
-        return data;
-    } catch (error) {
-        console.error('Error en la solicitud:', error.message);
-    }
-}
+import { fetchAPI } from '../utils/fetchAPI.js';
 
 // El método .map() recorre un array y devuelve un nuevo array tras aplicar una función a cada elemento. Aquí, por cada provincia (p) se extraen id y nombre. 
 export async function cargarProvincias() {
