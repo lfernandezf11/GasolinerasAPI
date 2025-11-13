@@ -12,11 +12,11 @@ export async function fetchAPI(url) {
     }
 }
 
+// El método .map() recorre un array y devuelve un nuevo array tras aplicar una función a cada elemento. Aquí, por cada provincia (p) se extraen id y nombre. 
 export async function cargarProvincias() {
     let provinciasData = await fetchAPI(`${API}${QUERYPARAMS.provincias}`);
-    // Sintaxis de map: array.map(elemento, index). Aquí, por cada elemento (provincia p) de dataProvincias, se añade al mapa su id y nombre, que corresponden a las variables del JSON IDPovincia y Provincia. 
-    return (provinciasData ?? []).map((p) => ({ // ??: devuelve un valor por defecto (en este caso, [], si lo de la izquierda es 'null' o 'undefined'.
-        id: p.IDPovincia, // CUIDADO! DEVUELVE IDPovincia.
+    return (provinciasData ?? []).map((p) => ({ // ??: devuelve un valor por defecto si lo de la izquierda es 'null' o 'undefined'.
+        id: p.IDPovincia, // CUIDADO! IDPovincia.
         nombre: p.Provincia,
     }));
 }
