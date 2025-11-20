@@ -87,18 +87,40 @@ function showResults(estaciones) {
         resultsSectionEl.textContent = 'No hay resultados para los filtros seleccionados.';
         return;
     }
+    
+    const table = document.createElement('table');
+    table.classList.add('resultados-gasolineras');
+
+    table.innerHTML = `
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Dirección</th>
+                <th>Localidad</th>
+                <th>Provincia</th>
+                <th>Horario</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    `;
+
+    const tbody = table.querySelector('tbody');
 
     for (const e of estaciones) {
-        const div = document.createElement('div');
-        div.classList.add('gasolinera');
-
-        div.innerHTML = `
-            <h3>${e.nombre}</h3>
-            <p><strong>Dirección:</strong> ${e.direccion}</p>
-            <p><strong>Localidad:</strong> ${e.localidad} (${e.provincia})</p>
-            <p><strong>Horario:</strong> ${e.horario}</p>
-            <p><strong>Precio:</strong> ${e.precio?.toFixed(3) ?? '-'}</p>
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${e.nombre}</td>
+            <td>${e.direccion}</td>
+            <td>${e.localidad}</td>
+            <td>${e.provincia}</td>
+            <td>${e.horario}</td>
+            <td>${e.precio?.toFixed(3) ?? '-'}€</td>
         `;
-        resultsSectionEl.appendChild(div);
+        tbody.appendChild(row);
     }
+
+    resultsSectionEl.appendChild(table);
 }
+
