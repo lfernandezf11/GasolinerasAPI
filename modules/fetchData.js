@@ -1,5 +1,5 @@
-import { API, QUERYPARAMS } from '/utils/constants.js';
-import { fetchAPI } from '../utils/fetchAPI.js';
+import { API, QUERYPARAMS } from './utils/constants.js';
+import { fetchAPI } from './../utils/fetchAPI.js';
 
 // El método .map() recorre un array y devuelve un nuevo array tras aplicar una función a cada elemento. Aquí, por cada provincia (p) se extraen id y nombre. 
 export async function cargarProvincias() {
