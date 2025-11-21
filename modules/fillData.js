@@ -1,4 +1,4 @@
-import { cargarProvincias, cargarMunicipios, cargarProductos } from './modules/fetchData.js';
+import { cargarProvincias, cargarMunicipios, cargarProductos } from './fetchData.js';
 
 export const provinciaSelectEl = document.getElementById('provincia');
 export const municipioSelectEl = document.getElementById('municipio');

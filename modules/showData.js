@@ -1,4 +1,4 @@
-import { cargarEstaciones } from './modules/fetchData.js';
+import { cargarEstaciones } from './fetchData.js';
 import { provinciaSelectEl, municipioSelectEl, productoSelectEl } from './fillData.js';
 import { regDays } from './../utils/constants.js';
 
