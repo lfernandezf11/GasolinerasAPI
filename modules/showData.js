@@ -37,7 +37,7 @@ function isOpenNow(estaciones) {
             isOpen.push(e);
         } else {
             let partitions = e.horario?.split(';');
-            for (const p of partitions) { //in para índices, of para elementos
+            for (const p of partitions) { //in para índices, of para elementos. Alternativa: partitions.forEach((p) => {}), siempre que no use break;  >> forEach no lo admite porque no es un bucle, sino una función que recibe un callback.
                 let parts = p.split(' ');
                 let openDays = parts[0].replace(':', '');
 
@@ -89,7 +89,7 @@ function showResults(estaciones) {
     }
     
     const table = document.createElement('table');
-    table.classList.add('resultados-gasolineras');
+    // table.classList.add('resultados-gasolineras');
 
     table.innerHTML = `
         <thead>
@@ -108,7 +108,7 @@ function showResults(estaciones) {
 
     const tbody = table.querySelector('tbody');
 
-    for (const e of estaciones) {
+    for (const e of estaciones) { //Alternativa: estaciones.forEach((e) => {})
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${e.nombre}</td>
